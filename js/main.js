@@ -7,15 +7,18 @@ const subscribeEmail =
   document.querySelector(".footer__input") ||
   document.getElementById("subscribe-email");
 
-subscribeForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+if (subscribeForm) {
+  subscribeForm.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  const userEmail = subscribeEmail.value;
+    const userEmail = subscribeEmail ? subscribeEmail.value : "";
+    alert(`Дякую за підписку! Ми відправили найкращі пропозиції на ${userEmail}`);
 
-  alert(`Дякую за підписку! Ми відправили найкращі пропозиції на ${userEmail}`);
-
-  subscribeEmail.value = "";
-});
+    if (subscribeEmail) {
+      subscribeEmail.value = "";
+    }
+  });
+}
 
 const cityLinks = document.querySelectorAll(
   ".footer__cities-grid .footer__link",
