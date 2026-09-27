@@ -1,3 +1,51 @@
+const searchBtn = document.querySelector('.header__search-btn');
+const loginBtn = document.querySelector('.header__login-btn');
+
+if (searchBtn) {
+  searchBtn.addEventListener('click', () => {
+    const addressInput = document.querySelector('.hero__input');
+    if (addressInput) {
+      addressInput.focus();
+    }
+  });
+}
+
+if (loginBtn) {
+  loginBtn.addEventListener('click', () => {
+    alert('Модальне вікно авторизації в розробці!');
+  });
+}
+
+
+const heroTabs = document.querySelectorAll('.hero__tab');
+
+heroTabs.forEach(tab => {
+  tab.addEventListener('click', (event) => {
+    event.preventDefault();
+   
+    heroTabs.forEach(t => t.classList.remove('hero__tab-active'));
+    tab.classList.add('hero__tab-active');
+  });
+});
+
+const heroForm = document.querySelector('.hero__form');
+const heroInput = document.querySelector('.hero__input');
+
+if (heroForm && heroInput) {
+  heroForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const address = heroInput.value.trim();
+
+    if (address !== '') {
+      alert(`Шукаємо заклади поруч з адресою: ${address}`);
+    } else {
+      alert('Будь ласка, введіть вашу адресу!');
+    }
+  });
+}
+
+
 const subscribeForm =
   document.querySelector(".subscribe__form") ||
   document.querySelector(".footer__form") ||
@@ -33,3 +81,11 @@ cityLinks.forEach(function (link) {
     alert(`Шукаємо найкращі пропозиції та ресторани у місті: ${cityName}...`);
   });
 });
+
+const viewAllBtn = document.querySelector('.restaurants__more-btn');
+
+if (viewAllBtn) {
+  viewAllBtn.addEventListener('click', () => {
+    alert('Завантаження повного списку ресторанiв...');
+  });
+}
